@@ -1,10 +1,20 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/frametop"
+    android:orientation="vertical"
     android:background="@android:color/holo_orange_dark"
-    tools:context="com.example.jose.ejercicio_fragments.Fragment2">
+    tools:context="com.example.jose.ejercicio_fragments.Fragment2"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
-</LinearLayout>
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:text="+1" />
+</FrameLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -23,9 +24,12 @@ public class Fragment3 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    TextView clickCount;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private static int count;
 
     private OnFragmentInteractionListener mListener;
 
@@ -42,11 +46,12 @@ public class Fragment3 extends Fragment {
      * @return A new instance of fragment Fragment3.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment3 newInstance(String param1, String param2) {
+    public static Fragment3 newInstance(String param1, String param2, int countador) {
         Fragment3 fragment = new Fragment3();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
+        count = countador;
         fragment.setArguments(args);
         return fragment;
     }
@@ -63,8 +68,10 @@ public class Fragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment3, container, false);
+        View v = inflater.inflate(R.layout.fragment_fragment3, container, false);
+        clickCount = (TextView) v.findViewById(R.id.clickCount);
+        addContador(count);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +111,15 @@ public class Fragment3 extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public void plusOneClick (int click){
+        int count = Integer.parseInt(clickCount.getText().toString());
+        String countString = String.valueOf(count+click);
+        clickCount.setText(countString);
+    }
+
+    public void addContador (int contador){
+        String contadorString = String.valueOf(contador);
+        clickCount.setText(contadorString.toString());
     }
 }
